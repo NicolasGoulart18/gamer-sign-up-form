@@ -103,11 +103,6 @@ body {
   font-size: 12px;
 }
 
-.password-strength {
-  margin: 0;
-  font-size: 12px;
-}
-
 .password-box {
   display: flex;
 }
@@ -127,6 +122,71 @@ body {
 
 .toggle-password:hover {
   background-color: #1a1a1a;
+}
+
+.password-strength {
+  margin-top: 4px;
+}
+
+.strength-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.strength-bar {
+  width: 25%;
+  height: 5px;
+  background-color: #333333;
+  transition: background-color 0.2s ease;
+}
+
+.strength-bar.fraca {
+  background-color: #ff4d4d;
+}
+
+.strength-bar.razoavel {
+  background-color: #ff9f43;
+}
+
+.strength-bar.boa {
+  background-color: #ffd32a;
+}
+
+.strength-bar.forte {
+  background-color: #b7ff3c;
+}
+
+.password-rules {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.password-rules li {
+  margin-top: 4px;
+}
+
+.password-rules li::before {
+  content: "○";
+  display: inline-block;
+  width: 16px;
+}
+
+.password-rules li.valid {
+  color: #b7ff3c;
+}
+
+.password-rules li.valid::before {
+  content: "✓";
 }
 
 .terms {

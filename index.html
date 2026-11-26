@@ -79,14 +79,26 @@
             </button>
           </div>
 
-          <p class="hint">
-            Mínimo de 8 caracteres
-          </p>
+          <div class="password-strength" aria-live="polite">
+            <div class="strength-header">
+              <span>Força da senha</span>
+              <span id="strength-text">---</span>
+            </div>
 
-          <p class="password-strength" aria-live="polite">
-            Força:
-            <span id="strength-text">---</span>
-          </p>
+            <div class="strength-bars" aria-hidden="true">
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+            </div>
+
+            <ul class="password-rules">
+              <li id="rule-length">Mínimo de 8 caracteres</li>
+              <li id="rule-uppercase">1 letra maiúscula</li>
+              <li id="rule-number">1 número</li>
+              <li id="rule-special">1 caractere especial</li>
+            </ul>
+          </div>
 
           <p class="error-message" id="senha-error"></p>
         </div>

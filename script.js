@@ -13,33 +13,82 @@ const confirmarError = document.getElementById("confirmar-error");
 const termosError = document.getElementById("termos-error");
 
 const strengthText = document.getElementById("strength-text");
+const barras = document.querySelectorAll(".strength-bar");
+
+const ruleLength = document.getElementById("rule-length");
+const ruleUppercase = document.getElementById("rule-uppercase");
+const ruleNumber = document.getElementById("rule-number");
+const ruleSpecial = document.getElementById("rule-special");
+
 const formStatus = document.getElementById("form-status");
 const botao = form.querySelector('button[type="submit"]');
 const botoesSenha = document.querySelectorAll(".toggle-password");
 
 
-senha.addEventListener("input", function() {
-  const valor = senha.value;
-  let pontos = 0;
+function verificarSenha(valor) {
+  return {
+    tamanho: valor.length >= 8,
+    maiuscula: /[A-Z]/.test(valor),
+    numero: /[0-9]/.test(valor),
+    especial: /[^A-Za-z0-9]/.test(valor)
+  };
+}
 
-  if (valor.length >= 8) pontos++;
-  if (valor.length >= 12) pontos++;
-  if (/[A-Z]/.test(valor) && /[a-z]/.test(valor)) pontos++;
-  if (/[0-9]/.test(valor)) pontos++;
-  if (/[^A-Za-z0-9]/.test(valor)) pontos++;
+
+function atualizarForcaSenha() {
+  const valor = senha.value;
+  const regrasSenha = verificarSenha(valor);
+
+  const regras = [
+    regrasSenha.tamanho,
+    regrasSenha.maiuscula,
+    regrasSenha.numero,
+    regrasSenha.especial
+  ];
+
+  const pontos = regras.filter(function(regra) {
+    return regra;
+  }).length;
+
+  barras.forEach(function(barra) {
+    barra.className = "strength-bar";
+  });
+
+  let classe = "";
+  let barrasAtivas = 0;
 
   if (valor === "") {
     strengthText.textContent = "---";
   } else if (pontos <= 1) {
     strengthText.textContent = "FRACA";
+    classe = "fraca";
+    barrasAtivas = 1;
   } else if (pontos === 2) {
     strengthText.textContent = "RAZOÁVEL";
+    classe = "razoavel";
+    barrasAtivas = 2;
   } else if (pontos === 3) {
     strengthText.textContent = "BOA";
+    classe = "boa";
+    barrasAtivas = 3;
   } else {
     strengthText.textContent = "FORTE";
+    classe = "forte";
+    barrasAtivas = 4;
   }
-});
+
+  for (let i = 0; i < barrasAtivas; i++) {
+    barras[i].classList.add(classe);
+  }
+
+  ruleLength.classList.toggle("valid", regrasSenha.tamanho);
+  ruleUppercase.classList.toggle("valid", regrasSenha.maiuscula);
+  ruleNumber.classList.toggle("valid", regrasSenha.numero);
+  ruleSpecial.classList.toggle("valid", regrasSenha.especial);
+}
+
+
+senha.addEventListener("input", atualizarForcaSenha);
 
 
 botoesSenha.forEach(function(botaoSenha) {
@@ -88,8 +137,15 @@ form.addEventListener("submit", function(event) {
 
 
   // Senha
-  if (senha.value.length < 8) {
-    senhaError.textContent = "A senha precisa ter pelo menos 8 caracteres";
+  const regrasSenha = verificarSenha(senha.value);
+
+  if (
+    !regrasSenha.tamanho ||
+    !regrasSenha.maiuscula ||
+    !regrasSenha.numero ||
+    !regrasSenha.especial
+  ) {
+    senhaError.textContent = "A senha não atende todos os requisitos";
     formValido = false;
   } else {
     senhaError.textContent = "";
@@ -125,7 +181,7 @@ form.addEventListener("submit", function(event) {
       botao.textContent = "CONTA CRIADA ✓";
 
       form.reset();
-      strengthText.textContent = "---";
+      atualizarForcaSenha();
 
       botoesSenha.forEach(function(botaoSenha) {
         const input = document.getElementById(botaoSenha.dataset.target);
