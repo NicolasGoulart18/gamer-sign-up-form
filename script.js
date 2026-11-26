@@ -8,10 +8,4 @@ const termos = document.getElementById("termos");
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
-
-  console.log(nome.value);
-  console.log(email.value);
-  console.log(senha.value);
-  console.log(confirmarSenha.value);
-  console.log(termos.checked);
 });
