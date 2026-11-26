@@ -57,3 +57,7 @@ body {
   margin: 0;
   font-size: 56px;
 }
+
+.hero p {
+  color: #94a3b8;
+}
