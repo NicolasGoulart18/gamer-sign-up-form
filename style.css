@@ -160,3 +160,31 @@ button[type="submit"]:hover {
     max-width: 100%;
   }
 }
+
+.error-message {
+  margin: 0;
+  color: #ff5c5c;
+  font-size: 12px;
+}
+
+.password-strength {
+  margin: 0;
+  font-size: 12px;
+}
+
+.password-box {
+  display: flex;
+}
+
+.password-box input {
+  flex: 1;
+}
+
+.toggle-password {
+  border: 1px solid #475569;
+  border-left: 0;
+  background: #101010;
+  color: #b6ff4a;
+  padding: 0 12px;
+  cursor: pointer;
+}
