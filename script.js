@@ -113,3 +113,22 @@ form.addEventListener("submit", function(event) {
     }, 1500);
   }
 });
+
+const botoesSenha = document.querySelectorAll(".toggle-password");
+
+botoesSenha.forEach(function(botaoSenha) {
+  botaoSenha.addEventListener("click", function() {
+
+    const idInput = botaoSenha.dataset.target;
+    const input = document.getElementById(idInput);
+
+    if (input.type === "password") {
+      input.type = "text";
+      botaoSenha.textContent = "OCULTAR";
+    } else {
+      input.type = "password";
+      botaoSenha.textContent = "MOSTRAR";
+    }
+
+  });
+});
