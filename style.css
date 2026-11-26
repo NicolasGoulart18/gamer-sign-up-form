@@ -24,19 +24,16 @@ body {
 
 .hero {
   background-color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }
 
 .signup {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
 }
 
 .hero a {
@@ -128,11 +125,22 @@ body {
   cursor: pointer;
 }
 
+.toggle-password:hover {
+  background-color: #1a1a1a;
+}
+
 .terms {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+}
+
+#form-status {
+  min-height: 16px;
+  margin: 12px 0 0;
+  color: #b6ff4a;
+  font-size: 12px;
 }
 
 button[type="submit"] {
@@ -148,6 +156,13 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background: #d0ff7a;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid #b7ff3c;
+  outline-offset: 3px;
 }
 
 @media (max-width: 800px) {
