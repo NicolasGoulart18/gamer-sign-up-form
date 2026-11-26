@@ -5,9 +5,12 @@
 }
 
 body {
+  margin: 0;
   background-color: #080808;
   color: #eeeeee;
+  font-family: Arial, sans-serif;
 }
+
 
 .page {
   min-height: 100vh;
@@ -128,4 +131,32 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background: #d0ff7a;
+}
+
+@media (max-width: 800px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .hero,
+  .signup {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .hero {
+    min-height: 35vh;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .signup {
+    align-items: flex-start;
+  }
+
+  #signup-form {
+    max-width: 100%;
+  }
 }
