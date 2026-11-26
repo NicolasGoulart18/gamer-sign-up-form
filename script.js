@@ -11,10 +11,14 @@ const emailError = document.getElementById("email-error");
 const senhaError = document.getElementById("senha-error");
 const confirmarError = document.getElementById("confirmar-error");
 const termosError = document.getElementById("termos-error");
+
 const strengthText = document.getElementById("strength-text");
+const formStatus = document.getElementById("form-status");
+const botao = form.querySelector('button[type="submit"]');
+const botoesSenha = document.querySelectorAll(".toggle-password");
+
 
 senha.addEventListener("input", function() {
-
   const valor = senha.value;
   let pontos = 0;
 
@@ -35,16 +39,31 @@ senha.addEventListener("input", function() {
   } else {
     strengthText.textContent = "FORTE";
   }
-
 });
 
-const botao = form.querySelector('button[type="submit"]');
+
+botoesSenha.forEach(function(botaoSenha) {
+  botaoSenha.addEventListener("click", function() {
+    const idInput = botaoSenha.dataset.target;
+    const input = document.getElementById(idInput);
+
+    if (input.type === "password") {
+      input.type = "text";
+      botaoSenha.textContent = "OCULTAR";
+    } else {
+      input.type = "password";
+      botaoSenha.textContent = "MOSTRAR";
+    }
+  });
+});
 
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
   let formValido = true;
+
+  formStatus.textContent = "";
 
   const nomeValido = /^[A-Za-z0-9_-]{3,20}$/;
   const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -97,13 +116,23 @@ form.addEventListener("submit", function(event) {
 
   // Se estiver tudo certo
   if (formValido) {
+    formStatus.textContent = "Criando conta...";
     botao.textContent = "CRIANDO CONTA...";
     botao.disabled = true;
 
     setTimeout(function() {
+      formStatus.textContent = "Conta criada com sucesso";
       botao.textContent = "CONTA CRIADA ✓";
 
       form.reset();
+      strengthText.textContent = "---";
+
+      botoesSenha.forEach(function(botaoSenha) {
+        const input = document.getElementById(botaoSenha.dataset.target);
+
+        input.type = "password";
+        botaoSenha.textContent = "MOSTRAR";
+      });
 
       setTimeout(function() {
         botao.textContent = "CRIAR CONTA";
@@ -112,23 +141,4 @@ form.addEventListener("submit", function(event) {
 
     }, 1500);
   }
-});
-
-const botoesSenha = document.querySelectorAll(".toggle-password");
-
-botoesSenha.forEach(function(botaoSenha) {
-  botaoSenha.addEventListener("click", function() {
-
-    const idInput = botaoSenha.dataset.target;
-    const input = document.getElementById(idInput);
-
-    if (input.type === "password") {
-      input.type = "text";
-      botaoSenha.textContent = "OCULTAR";
-    } else {
-      input.type = "password";
-      botaoSenha.textContent = "MOSTRAR";
-    }
-
-  });
 });
