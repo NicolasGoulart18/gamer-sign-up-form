@@ -1,1 +1,17 @@
-// JavaScript do projeto será construído passo a passo.
+const form = document.getElementById("signup-form");
+
+const nome = document.getElementById("nome-devi");
+const email = document.getElementById("email");
+const senha = document.getElementById("senha");
+const confirmarSenha = document.getElementById("confirmarSenha");
+const termos = document.getElementById("termos");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  console.log(nome.value);
+  console.log(email.value);
+  console.log(senha.value);
+  console.log(confirmarSenha.value);
+  console.log(termos.checked);
+});
