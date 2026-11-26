@@ -17,4 +17,8 @@ body {
   display: flex;
 }
 
-
+.hero,
+.signup {
+  width: 50%;
+  padding: 40px;
+}
