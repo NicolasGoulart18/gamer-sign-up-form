@@ -1,55 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gamer Sign-up Form</title>
+
+  <title>YOUDEV - Gamer Sign-up</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
+
   <main class="page">
+
     <section class="hero">
       <a href="">YOUDEV</a>
+
       <h1>JOIN THE DEVIS</h1>
-      <p>Inicialize sua identidade YOUDEV </p>
+
+      <p>Inicialize sua identidade YOUDEV</p>
     </section>
 
     <section class="signup">
+
       <form id="signup-form">
+
         <h2>CRIAR SUA CONTA DEVI</h2>
         <p>Todos os campos são obrigatórios</p>
-       <div class="field">
+
+        <div class="field">
           <label for="nome-devi">Usuário</label>
-          <input type="text" name="nome-devi" id="nome-devi" placeholder="Ex: Nicolas_dev">
-          <p class="hint">3-20 caracteres: letras, números, _ ou -</p>
-       </div>
+
+          <input
+            type="text"
+            name="nome-devi"
+            id="nome-devi"
+            placeholder="Ex: Nicolas_dev"
+          >
+
+          <p class="hint">
+            3-20 caracteres: letras, números, _ ou -
+          </p>
+
+          <p class="error-message" id="nome-error"></p>
+        </div>
+
 
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Ex: usuario@email.com">
+
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ex: usuario@email.com"
+          >
+
+          <p class="error-message" id="email-error"></p>
         </div>
 
-      <div class="field">
+
+        <div class="field">
           <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha">          
-          <p class="hint">Mínimo de 8 caracteres</p>        
-      </div>
+
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+          >
+
+          <p class="hint">
+            Mínimo de 8 caracteres
+          </p>
+
+          <p class="error-message" id="senha-error"></p>
+        </div>
+
 
         <div class="field">
           <label for="confirmarSenha">Confirmar senha</label>
-          <input type="password" id="confirmarSenha" name="confirmarSenha">
-        </div>
-        
-        <div class="terms">
-          <input type="checkbox" id="termos" name="termos">        
-          <label for="termos">Eu aceito os Termos e a Política de Privacidade</label>
+
+          <input
+            type="password"
+            id="confirmarSenha"
+            name="confirmarSenha"
+          >
+
+          <p class="error-message" id="confirmar-error"></p>
         </div>
 
-        <button type="submit">CRIAR CONTA</button>
+
+        <div class="terms">
+          <input
+            type="checkbox"
+            id="termos"
+            name="termos"
+          >
+
+          <label for="termos">
+            Eu aceito os Termos e a Política de Privacidade
+          </label>
+        </div>
+
+        <p class="error-message" id="termos-error"></p>
+
+
+        <button type="submit">
+          CRIAR CONTA
+        </button>
+
       </form>
+
     </section>
+
   </main>
+
 </body>
 </html>
