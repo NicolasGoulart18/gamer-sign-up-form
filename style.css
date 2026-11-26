@@ -12,4 +12,9 @@ body {
   font-family: Arial sans-serif;
 
 }
+.page {
+  min-height: 100vh;
+  display: flex;
+}
+
 
