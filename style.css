@@ -33,3 +33,8 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+#signup-form {
+  width: 100%;
+  max-width: 450px;
+}
