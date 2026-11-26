@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +24,7 @@
       <p>Inicialize sua identidade YOUDEV</p>
     </section>
 
+
     <section class="signup">
 
       <form id="signup-form">
@@ -29,7 +32,10 @@
         <h2>CRIAR SUA CONTA DEVI</h2>
         <p>Todos os campos são obrigatórios</p>
 
+
+        <!-- USUÁRIO -->
         <div class="field">
+
           <label for="nome-devi">Usuário</label>
 
           <input
@@ -44,10 +50,13 @@
           </p>
 
           <p class="error-message" id="nome-error"></p>
+
         </div>
 
 
+        <!-- EMAIL -->
         <div class="field">
+
           <label for="email">Email</label>
 
           <input
@@ -58,40 +67,80 @@
           >
 
           <p class="error-message" id="email-error"></p>
+
         </div>
 
 
+        <!-- SENHA -->
         <div class="field">
+
           <label for="senha">Senha</label>
 
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-          >
+          <div class="password-box">
+
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+            >
+
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="senha"
+            >
+              MOSTRAR
+            </button>
+
+          </div>
 
           <p class="hint">
             Mínimo de 8 caracteres
           </p>
 
+          <p class="password-strength">
+            Força:
+            <span id="strength-text">---</span>
+          </p>
+
           <p class="error-message" id="senha-error"></p>
+
         </div>
 
 
+        <!-- CONFIRMAR SENHA -->
         <div class="field">
-          <label for="confirmarSenha">Confirmar senha</label>
 
-          <input
-            type="password"
-            id="confirmarSenha"
-            name="confirmarSenha"
-          >
+          <label for="confirmarSenha">
+            Confirmar senha
+          </label>
+
+          <div class="password-box">
+
+            <input
+              type="password"
+              id="confirmarSenha"
+              name="confirmarSenha"
+            >
+
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="confirmarSenha"
+            >
+              MOSTRAR
+            </button>
+
+          </div>
 
           <p class="error-message" id="confirmar-error"></p>
+
         </div>
 
 
+        <!-- TERMOS -->
         <div class="terms">
+
           <input
             type="checkbox"
             id="termos"
@@ -101,11 +150,13 @@
           <label for="termos">
             Eu aceito os Termos e a Política de Privacidade
           </label>
+
         </div>
 
         <p class="error-message" id="termos-error"></p>
 
 
+        <!-- BOTÃO -->
         <button type="submit">
           CRIAR CONTA
         </button>
@@ -117,4 +168,6 @@
   </main>
 
 </body>
+
 </html>
+```

@@ -11,6 +11,32 @@ const emailError = document.getElementById("email-error");
 const senhaError = document.getElementById("senha-error");
 const confirmarError = document.getElementById("confirmar-error");
 const termosError = document.getElementById("termos-error");
+const strengthText = document.getElementById("strength-text");
+
+senha.addEventListener("input", function() {
+
+  const valor = senha.value;
+  let pontos = 0;
+
+  if (valor.length >= 8) pontos++;
+  if (valor.length >= 12) pontos++;
+  if (/[A-Z]/.test(valor) && /[a-z]/.test(valor)) pontos++;
+  if (/[0-9]/.test(valor)) pontos++;
+  if (/[^A-Za-z0-9]/.test(valor)) pontos++;
+
+  if (valor === "") {
+    strengthText.textContent = "---";
+  } else if (pontos <= 1) {
+    strengthText.textContent = "FRACA";
+  } else if (pontos === 2) {
+    strengthText.textContent = "RAZOÁVEL";
+  } else if (pontos === 3) {
+    strengthText.textContent = "BOA";
+  } else {
+    strengthText.textContent = "FORTE";
+  }
+
+});
 
 const botao = form.querySelector('button[type="submit"]');
 
