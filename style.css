@@ -61,3 +61,10 @@ body {
 .hero p {
   color: #94a3b8;
 }
+
+#signup-form {
+  background: #111827;
+  padding: 35px;
+  border: 1px solid #334155;
+}
+
