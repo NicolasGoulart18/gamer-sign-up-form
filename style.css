@@ -27,3 +27,9 @@ body {
   background: #111827;
 
 }
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
