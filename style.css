@@ -68,3 +68,30 @@ body {
   border: 1px solid #334155;
 }
 
+#signup-form h2 {
+  margin-top: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.field input {
+  padding: 14px;
+  border: 1px solid #475569;
+  background: #020617;
+  color: white;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #b7ff3c;
+}
